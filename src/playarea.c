@@ -35,6 +35,8 @@ void setup_playarea(void)
 
   playarea = newwin(BORDER_HEIGHT, BORDER_WIDTH, y, x);
   box(playarea, BORDER_SIDE, BORDER_ENDS);
+
+  keypad(playarea, TRUE);
 }
 
 void destroy_playarea(void)
@@ -130,4 +132,6 @@ void fill_gems(void)
 
     i++;
   }
+
+  wmove(playarea, 1, 1);
 }

@@ -1,6 +1,7 @@
 #include <curses.h>
 
 #include "main.h"
+#include "movement.h"
 #include "playarea.h"
 
 void init_colour_pairs(void)
@@ -48,9 +49,14 @@ int main(int argc, char **argv)
 
   refresh();
   fill_gems();
+  refresh();
   refresh_playarea();
 
-  getchar();
+  while(1 == 1)
+  {
+    get_input();
+    refresh_playarea();
+  }
 
   destroy_playarea();
   endwin();

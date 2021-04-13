@@ -7,4 +7,6 @@ extern void refresh_playarea(void);
 
 extern void fill_gems(void);
 
+WINDOW *playarea;
+
 #endif /* _PLAYAREA_H_ */
