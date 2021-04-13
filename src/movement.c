@@ -14,24 +14,29 @@ void get_input(void)
   {
     case KEY_UP:
       cury--;
-      refresh();
       break;
 
     case KEY_DOWN:
       cury++;
-      refresh();
       break;
 
     case KEY_LEFT:
       curx--;
-      refresh();
       break;
 
     case KEY_RIGHT:
       curx++;
-      refresh();
       break;
   }
+
+  if(curx > 23)
+    curx = 23;
+  if(curx <= 0)
+    curx = 1;
+  if(cury <= 0)
+    cury = 1;
+  if(cury > 11)
+    cury = 11;
 
   wmove(playarea, cury, curx);
 }

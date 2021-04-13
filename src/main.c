@@ -55,6 +55,7 @@ int main(int argc, char **argv)
   while(1)
   {
     get_input();
+    refresh();
     refresh_playarea();
   }
 
