@@ -10,7 +10,7 @@ int main(int argc, char **argv)
   noecho();
   nonl();
   keypad(stdscr, TRUE);
-  
+
   if(!has_colors())
   {
     endwin();
@@ -22,19 +22,19 @@ int main(int argc, char **argv)
   {
     start_color();
   }
-  
+
   int maxx = 0;
   int maxy = 0;
   getmaxyx(stdscr, maxy, maxx);
-  
+
   setup_playarea();
-  
+
   refresh();
   fill_gems();
   refresh_playarea();
-  
+
   getchar();
-  
+
   destroy_playarea();
   endwin();
   return 0;
