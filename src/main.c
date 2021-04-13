@@ -46,13 +46,13 @@ int main(int argc, char **argv)
   getmaxyx(stdscr, maxy, maxx);
 
   setup_playarea();
-
   refresh();
+
   fill_gems();
   refresh();
   refresh_playarea();
 
-  while(1 == 1)
+  while(1)
   {
     get_input();
     refresh_playarea();
