@@ -3,6 +3,22 @@
 #include "main.h"
 #include "playarea.h"
 
+void init_colour_pairs(void)
+{
+  /* regular colours */
+  init_pair(1, COLOR_RED, COLOR_BLACK);
+  init_pair(2, COLOR_GREEN, COLOR_BLACK);
+  init_pair(3, COLOR_YELLOW, COLOR_BLACK);
+  init_pair(4, COLOR_CYAN, COLOR_BLACK);
+  init_pair(5, COLOR_MAGENTA, COLOR_BLACK);
+
+  /* special gems */
+  init_pair(6, COLOR_BLACK, COLOR_RED); /* flame */
+  init_pair(7, COLOR_WHITE, COLOR_CYAN); /* star */
+  init_pair(8, COLOR_BLUE, COLOR_MAGENTA); /* selective */
+  init_pair(9, COLOR_RED, COLOR_YELLOW); /* >9000 */
+}
+
 int main(int argc, char **argv)
 {
   initscr();
@@ -21,6 +37,7 @@ int main(int argc, char **argv)
   else
   {
     start_color();
+    init_colour_pairs();
   }
 
   int maxx = 0;

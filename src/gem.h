@@ -5,6 +5,7 @@
 #define GEM_ASTERISK '*'
 #define GEM_EQUALS   '='
 #define GEM_HASH     '#'
+#define GEM_AMP      '&'
 #define GEM_PLUS     '+'
 #define GEM_PERCENT  '%'
 #define GEM_SELECT   '?'
@@ -21,9 +22,9 @@ enum gem_type
 struct gem
 {
   enum gem_type type;
-  
+
   char character;
-  int colour;
+  int colour_pair;
   int x, y;
   int xoffset;
 };

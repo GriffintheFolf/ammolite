@@ -56,7 +56,7 @@ int rand_in_range(int min, int max)
 
 char pick_gem_char(void)
 {
-  switch(rand_in_range(1, 6))
+  switch(rand_in_range(1, 7))
   {
     case 1:
       return GEM_AT;
@@ -81,10 +81,19 @@ char pick_gem_char(void)
     case 6:
       return GEM_PERCENT;
       break;
+
+    case 7:
+      return GEM_AMP;
+      break;
   }
 
   /* make the compiler happy */
   return GEM_SELECT;
+}
+
+short pick_gem_colour(void)
+{
+  return rand_in_range(1, 5);
 }
 
 /* gems are stored in the array from top left
@@ -96,6 +105,7 @@ void fill_gems(void)
   {
     allgems[i].type = GEM_NORMAL;
     allgems[i].character = pick_gem_char();
+    allgems[i].colour_pair = pick_gem_colour();
     allgems[i].xoffset = 0;
 
     x++;
@@ -111,7 +121,8 @@ void fill_gems(void)
       allgems[i].xoffset = 1;
     }
 
-    //printf("x: %d     y: %d\n", x, y);
+    //printf("x: %d  y: %d  c: %d\n", x, y, allgems[i].colour_pair);
+    wattron(playarea, A_NORMAL | COLOR_PAIR(allgems[i].colour_pair));
     if(!allgems[i].xoffset)
       mvwaddch(playarea, y, x, allgems[i].character);
     else if(y != BORDER_HEIGHT - 1)
