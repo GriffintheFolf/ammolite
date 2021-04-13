@@ -1,5 +1,5 @@
 CC     := cc
-CFLAGS := -lcurses
+CFLAGS := -O3 -Wall -lcurses
 
 SRC := src
 
